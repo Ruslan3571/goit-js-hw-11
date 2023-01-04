@@ -1,4 +1,3 @@
-
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -33,7 +32,7 @@ function onLoadMore() {
   fetchPhotos();
 }
 
-function fetchPhotos() {
+ function fetchPhotos() {
   getPhotos(searchQuery, page).then(({ hits, totalHits }) => {
     totalPages = totalHits / 40;
     if (hits.length === 0) {
@@ -45,7 +44,7 @@ function fetchPhotos() {
     listEl.insertAdjacentHTML('beforeend', photoList(hits));
     new SimpleLightbox('.gallery a');
     loadBtn.classList.remove('hidden');
-    if (page === 2) {
+    if (page === 1) {
       Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
     }
     if (page === totalPages) {
